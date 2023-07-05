@@ -32,7 +32,8 @@ floating point values and upload them to the cloud.
 
 ## Goals
 
-* Learn how to establish RS-485 interface connectivity between the Opta™ and Finder 7M devices.
+* Learn how to establish RS-485 interface connectivity between the Opta™ and
+  Finder 7M devices.
 * Learn how to use the Modbus RTU communication protocol to read 7M registers.
 * Learn how to convert encoded values to floating point numbers.
 * Learn how to upload 7M energy readings to the Arduino Cloud.
@@ -62,7 +63,7 @@ the Arduino IDE.
   in the following section. The Ethernet connection is also available as a
   connectivity option to leverage Arduino Cloud applications. The Arduino Cloud
   account is free and is needed to access its features.
-* [Example code](assets/Opta_7M_Example.zip).
+* [Example code](assets/Opta7MExample.zip).
 
 ## Finder 7M and the Modbus Protocol
 
@@ -129,7 +130,7 @@ The goal of the following example is to read some values from the Finder 7M via
 Modbus and print them to the serial console for debug. Moreover, the value of
 the E1 energy counter will be uploaded to the Arduino Cloud.
 
-The full code of the example is available [here](assets/Opta_7M_Example.zip):
+The full code of the example is available [here](assets/Opta7MExample.zip):
 after extracting the files the sketch can be compiled and uploaded to the
 Opta™.
 
@@ -207,7 +208,7 @@ void setup()
 ```
 
 The leds on the Opta™ are flashed to show that we're executing the `setup()`,
-then the RS 485 is configured with the Modbus parameters according to [the
+then the RS-485 is configured with the Modbus parameters according to [the
   Modbus over serial line
   guide](https://modbus.org/docs/Modbus_over_serial_line_V1_02.pdf). The
   Baudrate is set to `19200`, while the serial configuration is `8-N-1`.
@@ -412,8 +413,8 @@ void loop()
 ## Reading from multiple Finder7M devices
 
 If we want to read from the registers of more than one 7M, we can initialize in
-our program an array containing the Modbus
-addresses of the devices that we want to interact with:
+our program an array containing the Modbus addresses of the devices that we
+want to interact with:
 
 ```cpp
 const uint8_t addresses[4] = {6, 10, 11, 13};
