@@ -1,5 +1,5 @@
 ---
-title: 'Introduzione all'Opta™ e al Finder 7M'
+title: "Introduzione all'Opta™ e al Finder 7M"
 description: "Impara a leggere i registri del 7M utilizzando il protocollo Modbus su Opta™."
 author: 'Federico Di Gregorio'
 libraries:
