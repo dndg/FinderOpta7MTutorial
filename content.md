@@ -410,6 +410,9 @@ void loop()
 }
 ```
 
+To learn more about the library head over to the [official
+repository](https://github.com/dndg/Finder7M).
+
 ## Reading from multiple Finder7M devices
 
 If we want to read from the registers of more than one 7M, we can initialize in

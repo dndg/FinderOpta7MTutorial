@@ -417,6 +417,9 @@ void loop()
 }
 ```
 
+Per saperne di più sulla libreria, visita la [repository
+ufficiale](https://github.com/dndg/Finder6M).
+
 ## Lettura da più dispositivi Finder7M
 
 Se desideriamo leggere dai registri di più 7M, possiamo inizializzare nel
