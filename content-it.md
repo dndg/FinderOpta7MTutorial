@@ -111,8 +111,8 @@ adeguato ad essere alimentato tramite i connettori di uscita a 240V (ad esempio
 una lampada). Utilizza l'alimentatore da 12VDC/1A per alimentare l'Opta e
 assicurati di configurare correttamente la connessione seriale RS-485 tra
 l'Opta e il 7M. Durante la connessione tramite interfaccia RS-485 del tuo
-dispositivo Opta al contatore di energia Finder serie 7M puoi fare riferimento al
-diagramma sottostante.
+dispositivo Opta al contatore di energia Finder serie 7M puoi fare riferimento
+al diagramma sottostante.
 
 ![Connessione tra Opta e Finder 7M](assets/connection.svg)
 
@@ -129,13 +129,12 @@ tramite NFC.
 
 ### Panoramica del codice
 
-Lo scopo del seguente esempio è leggere alcuni valori dal Finder serie 7M tramite
-Modbus e stamparli su console seriale per il debug. Inoltre, il valore del
-contatore di energia E1 verrà caricato su Arduino Cloud.
+Lo scopo del seguente esempio è leggere alcuni valori dal Finder serie 7M
+tramite Modbus e stamparli su console seriale per il debug. Inoltre, il valore
+del contatore di energia E1 verrà caricato su Arduino Cloud.
 
 Il codice completo dell'esempio è disponibile [qui](assets/Opta7MExample.zip):
-dopo aver estratto i file, lo sketch può essere compilato e caricato
-sull'Opta.
+dopo aver estratto i file, lo sketch può essere compilato e caricato sull'Opta.
 
 Si noti che il file `thingProperties.h`, generato da Arduino Cloud durante la
 configurazione del pannello di controllo, è stato leggermente modificato per
@@ -453,6 +452,6 @@ void loop()
 
 Questo tutorial illustra come utilizzare le librerie `ArduinoRS485` e
 `ArduinoModbus` per implementare il protocollo Modbus RTU tra l'Opta e un
-contatore di energia Finder serie 7M. Inoltre, mostra come sia possibile utilizzare
-la libreria `Finder7M` per leggere facilmente contatori e altri valori da un
-7M.
+contatore di energia Finder serie 7M. Inoltre, mostra come sia possibile
+utilizzare la libreria `Finder7M` per leggere facilmente contatori e altri
+valori da un 7M.
