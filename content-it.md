@@ -450,7 +450,7 @@ void loop()
 
 ## Conclusioni
 
-Questo tutorial illustra come utilizzare le librerie `ArduinoRS485` e
+Questo tutorial mostra come utilizzare le librerie `ArduinoRS485` e
 `ArduinoModbus` per implementare il protocollo Modbus RTU tra l'Opta e un
 contatore di energia Finder serie 7M. Inoltre, mostra come sia possibile
 utilizzare la libreria `Finder7M` per leggere facilmente contatori e altri
