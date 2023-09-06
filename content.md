@@ -59,7 +59,7 @@ Editor](https://create.arduino.cc/editor).
 `ArduinoModbus` libraries. You can install them using the Library Manager of
 the Arduino IDE.
 * The [Arduino Cloud](https://create.arduino.cc/iot/things) will be required to
-  store the 7M enery readings via Wi-Fi® connectivity using the sketch provided
+  store the 7M energy readings via Wi-Fi® connectivity using the sketch provided
   in the following section. The Ethernet connection is also available as a
   connectivity option to leverage Arduino Cloud applications. The Arduino Cloud
   account is free and is needed to access its features.
