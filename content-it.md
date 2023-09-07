@@ -1,6 +1,6 @@
 ---
-title: "Introduzione a Opta e ai contatori di energia Finder serie 7M"
-description: "Impara a leggere i registri del 7M utilizzando il protocollo Modbus su Opta."
+title: "Introduzione a Finder Opta e ai contatori di energia Finder serie 7M"
+description: "Impara a leggere i registri del 7M utilizzando il protocollo Modbus su Finder Opta."
 author: 'Federico Di Gregorio'
 libraries:
   - name: 'ArduinoRS485'
@@ -24,16 +24,16 @@ hardware:
 
 ## Panoramica
 
-Tra i protocolli supportati da Opta, troviamo Modbus RTU. In questo tutorial
-impareremo a implementare la comunicazione Modbus RTU su RS-485 tra Opta e un
-contatore di energia Finder serie 7M. In particolare, impareremo a convertire i
-valori letti dai registri del 7M in valori floating point e a caricarli su
-Arduino Cloud.
+Tra i protocolli supportati da Finder Opta, troviamo Modbus RTU. In questo
+tutorial impareremo a implementare la comunicazione Modbus RTU su RS-485 tra
+Finder Opta e un contatore di energia Finder serie 7M. In particolare,
+impareremo a convertire i valori letti dai registri del 7M in valori floating
+point e a caricarli su Arduino Cloud.
 
 ## Obiettivi
 
 * Imparare a stabilire la connettività dell'interfaccia RS-485 tra i
-  dispositivi Opta e Finder serie 7M.
+  dispositivi Finder Opta e Finder serie 7M.
 * Imparare a utilizzare il protocollo di comunicazione Modbus RTU per leggere i
   registri del 7M.
 * Imparare a convertire i valori codificati in floating point.
@@ -43,7 +43,7 @@ Arduino Cloud.
 
 ### Requisiti Hardware
 
-* PLC Opta con supporto RS-485 (x1).
+* PLC Finder Opta con supporto RS-485 (x1).
 * Contatore di energia Finder serie 7M (x1).
 * Alimentatore DIN rail 12VDC/1A (x1).
 * Cavo USB-C® (x1).
@@ -84,15 +84,16 @@ sono *register offset* e non *byte offset*.
 Per ulteriori informazioni sul protocollo di comunicazione Modbus, dai
 un'occhiata a questo [articolo su
 Modbus](https://docs.arduino.cc/learn/communication/modbus): tutte le
-funzionalità fornite dalla libreria `ArduinoModbus` sono supportate da Opta.
+funzionalità fornite dalla libreria `ArduinoModbus` sono supportate da Finder
+Opta.
 
 ## Istruzioni
 
 ### Configurazione dell'Arduino IDE
 
 Per seguire questo tutorial, sarà necessaria [l'ultima versione dell'Arduino
-IDE](https://www.arduino.cc/en/software). Se è la prima volta che configuri
-l'Opta, dai un'occhiata al tutorial [Getting Started with
+IDE](https://www.arduino.cc/en/software). Se è la prima volta che configuri il
+Finder Opta, dai un'occhiata al tutorial [Getting Started with
 Opta](/tutorials/opta/getting-started).
 
 Assicurati di installare l'ultima versione delle librerie
@@ -103,16 +104,16 @@ Modbus RTU. Inoltre, installa la libreria
 [ArduinoIoTCloud](https://www.arduino.cc/reference/en/libraries/arduinoiotcloud/),
 necessaria per caricare i dati su Arduino Cloud.
 
-### Connessione tra Opta e Finder serie 7M
+### Connessione tra Finder Opta e Finder serie 7M
 
 Per avere dei dati da caricare su Arduino Cloud, è necessario collegare il
 contatore di energia Finder serie 7M alla rete elettrica e fornire un carico
 adeguato ad essere alimentato tramite i connettori di uscita a 240V (ad esempio
-una lampada). Utilizza l'alimentatore da 12VDC/1A per alimentare l'Opta e
-assicurati di configurare correttamente la connessione seriale RS-485 tra
-l'Opta e il 7M. Durante la connessione tramite interfaccia RS-485 del tuo
-dispositivo Opta al contatore di energia Finder serie 7M puoi fare riferimento
-al diagramma sottostante.
+una lampada). Utilizza l'alimentatore da 12VDC/1A per alimentare il Finder Opta
+e assicurati di configurare correttamente la connessione seriale RS-485 tra il
+Finder Opta e il 7M. Durante la connessione tramite interfaccia RS-485 del tuo
+dispositivo Finder Opta al contatore di energia Finder serie 7M puoi fare
+riferimento al diagramma sottostante.
 
 ![Connessione tra Opta e Finder 7M](assets/connection.svg)
 
@@ -123,9 +124,10 @@ parametri di comunicazione del 7M:
 * Baudrate `19200`.
 * Configurazione seriale `8-N-1`.
 
-Ciò può essere fatto con facilità utilizzando [l'applicazione
-Toolbox](https://play.google.com/store/apps/details?id=com.findernet.ToolboxNFC)
-tramite NFC.
+Ciò può essere fatto con facilità con il tuo smartphone utilizzando
+[l'applicazione Finder
+Toolbox](https://www.findernet.com/it/italia/supporto/software-e-app/) tramite
+NFC.
 
 ### Panoramica del codice
 
@@ -134,7 +136,8 @@ tramite Modbus e stamparli su console seriale per il debug. Inoltre, il valore
 del contatore di energia E1 verrà caricato su Arduino Cloud.
 
 Il codice completo dell'esempio è disponibile [qui](assets/Opta7MExample.zip):
-dopo aver estratto i file, lo sketch può essere compilato e caricato sull'Opta.
+dopo aver estratto i file, lo sketch può essere compilato e caricato sul Finder
+Opta.
 
 Si noti che il file `thingProperties.h`, generato da Arduino Cloud durante la
 configurazione del pannello di controllo, è stato leggermente modificato per
@@ -209,7 +212,7 @@ void setup()
 }
 ```
 
-I led sull'Opta lampeggiano per indicare che stiamo eseguendo la funzione
+I led sul Finder Opta lampeggiano per indicare che stiamo eseguendo la funzione
 `setup()`, quindi la connessione RS-485 viene configurata con i parametri
 Modbus secondo la guida [Modbus over serial
 line](https://modbus.org/docs/Modbus_over_serial_line_V1_02.pdf). Il Baudrate
@@ -332,8 +335,8 @@ risultato viene restituito come float.
 ### Invio dei dati al cloud
 
 Per inviare i dati letti dal 7M al cloud, sarà necessario creare un account
-Arduino Cloud, registrare il dispositivo Opta, assegnarlo ad un oggetto e
-aggiungere una proprietà per ogni variabile che si desidera caricare.
+Arduino Cloud, registrare il dispositivo Finder Opta, assegnarlo ad un oggetto
+e aggiungere una proprietà per ogni variabile che si desidera caricare.
 
 In questo esempio, invieremo al cloud un singolo valore: il contatore di
 energia E1. Dopo aver aggiunto la proprietà `energy`, possiamo copiare il
@@ -363,7 +366,7 @@ void initProperties()
 
 Le costanti `WIFI_SECRET_SSID`, `WIFI_SECRET_PASSWORD` e
 `ARDUINO_CLOUD_USE_WIFI` sono definite in `config.h` e consentono di
-configurare l'Opta per una connessione di rete WiFi o Ethernet.
+configurare il Finder Opta per una connessione di rete WiFi o Ethernet.
 
 La funzione `setup()` avrà bisogno di alcune linee di codice aggiuntive per
 configurare correttamente la connessione a Arduino Cloud, in particolare:
@@ -451,7 +454,7 @@ void loop()
 ## Conclusioni
 
 Questo tutorial mostra come utilizzare le librerie `ArduinoRS485` e
-`ArduinoModbus` per implementare il protocollo Modbus RTU tra l'Opta e un
-contatore di energia Finder serie 7M. Inoltre, mostra come sia possibile
+`ArduinoModbus` per implementare il protocollo Modbus RTU tra il Finder Opta e
+un contatore di energia Finder serie 7M. Inoltre, mostra come sia possibile
 utilizzare la libreria `Finder7M` per leggere facilmente contatori e altri
 valori da un 7M.
